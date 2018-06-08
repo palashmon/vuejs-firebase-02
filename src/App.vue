@@ -32,15 +32,11 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <v-content>
-      <v-container fluid fill-height>
-        <main>
-          <router-view></router-view>
-        </main>
-      </v-container>
-    </v-content>
-    <v-footer color="primary" temporary>
-      <span class="white--text">&copy; 2018</span>
+    <main>
+      <router-view></router-view>
+    </main>
+    <v-footer color="primary" temporary :absolute="true">
+      <span class="white--text copyright">&copy; 2018</span>
     </v-footer>
   </v-app>
 </template>
@@ -62,3 +58,9 @@ export default {
   name: 'App'
 };
 </script>
+<style>
+.copyright {
+  letter-spacing: 0.02em;
+  margin-left: 16px;
+}
+</style>
