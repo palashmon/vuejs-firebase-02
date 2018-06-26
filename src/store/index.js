@@ -7,17 +7,22 @@ export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
       {
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg',
+        imageUrl: 'https://bit.ly/1luHTBM',
         id: 'afajfjadfaadfa323',
         title: 'Meetup in New York',
         date: '2018-06-26'
       },
       {
-        imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/7/7a/Paris_-_Blick_vom_gro%C3%9Fen_Triumphbogen.jpg',
+        imageUrl: 'https://bit.ly/1NZ5FP2',
         id: 'aadsfhbkhlk1241',
         title: 'Meetup in Paris',
         date: '2018-06-25'
+      },
+      {
+        imageUrl: 'https://bit.ly/2Kpfdty',
+        id: 'aadsfhbkhlk1242',
+        title: 'Meetup in Vienna',
+        date: '2018-06-27'
       }
     ],
     user: {
@@ -25,8 +30,25 @@ export const store = new Vuex.Store({
       registeredMeetups: ['aadsfhbkhlk1241']
     }
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    createMeetup(state, payload) {
+      state.loadedMeetups.push(payload);
+    }
+  },
+  actions: {
+    createMeetup({ commit }, payload) {
+      const meetup = {
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date,
+        id: 'kfdlsfjslakl12'
+      };
+      // Reach out to firebase and store it
+      commit('createMeetup', meetup);
+    }
+  },
   getters: {
     loadedMeetups(state) {
       return state.loadedMeetups.sort((meetupA, meetupB) => meetupA.date > meetupB.date);
