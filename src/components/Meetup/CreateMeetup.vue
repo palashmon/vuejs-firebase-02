@@ -76,20 +76,20 @@
         location: '',
         imageUrl: '',
         description: ''
-      }
+      };
     },
     computed: {
       formIsValid () {
         return this.title !== '' &&
           this.location !== '' &&
           this.imageUrl !== '' &&
-          this.description !== ''
+          this.description !== '';
       }
     },
     methods: {
       onCreateMeetup () {
         if (!this.formIsValid) {
-          return
+          return;
         }
         const meetupData = {
           title: this.title,
@@ -97,10 +97,10 @@
           imageUrl: this.imageUrl,
           description: this.description,
           date: new Date()
-        }
-        this.$store.dispatch('createMeetup', meetupData)
-        this.$router.push('/meetups')
+        };
+        this.$store.dispatch('createMeetup', meetupData);
+        this.$router.push('/meetups');
       }
     }
-  }
+  };
 </script>

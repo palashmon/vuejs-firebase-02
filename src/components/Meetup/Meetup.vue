@@ -29,8 +29,8 @@
     props: ['id'],
     computed: {
       meetup () {
-        return this.$store.getters.loadedMeetup(this.id)
+        return this.$store.getters.loadedMeetup(this.id);
       }
     }
-  }
+  };
 </script>

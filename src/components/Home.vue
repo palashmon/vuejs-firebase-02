@@ -34,7 +34,7 @@
   export default {
     computed: {
       meetups () {
-        return this.$store.getters.featuredMeetups
+        return this.$store.getters.featuredMeetups;
       }
     },
     methods: {
@@ -46,12 +46,12 @@
 </script>
 
 <style scoped>
-  .title {
-    position: absolute;
-    bottom: 50px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    font-size: 2em;
-    padding: 20px;
-  }
+.title {
+  position: absolute;
+  bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2em;
+  padding: 20px;
+}
 </style>
