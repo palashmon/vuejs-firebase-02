@@ -42,8 +42,8 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name]-bundle.js',
-    chunkFilename: '[name]-chunk.js',
+    filename: 'bundle.[name].js',
+    chunkFilename: 'chunk.[name].js',
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
