@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/components/Home';
-import Meetups from '@/components/Meetup/Meetups';
-import CreateMeetup from '@/components/Meetup/CreateMeetup';
-import Profile from '@/components/User/Profile';
-import Signup from '@/components/User/Signup';
-import Signin from '@/components/User/Signin';
-import Meetup from '@/components/Meetup/Meetup';
+const Home = () => import('@/components/Home');
+const Meetups = () => import('@/components/Meetup/Meetups');
+const CreateMeetup = () => import('@/components/Meetup/CreateMeetup');
+const Profile = () => import('@/components/User/Profile');
+const Signup = () => import('@/components/User/Signup');
+const Signin = () => import('@/components/User/Signin');
+const Meetup = () => import('@/components/Meetup/Meetup');
 
 Vue.use(Router);
 export default new Router({

@@ -1,40 +1,55 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const path = require('path');
+const webpack = require('webpack');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
 }
 
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
+const createLintingRule = () => {
+  return {
+    test: /\.(js|vue)$/,
+    loader: 'eslint-loader',
+    enforce: 'pre',
+    include: [resolve('src'), resolve('test')],
+    options: {
+      formatter: require('eslint-friendly-formatter'),
+      emitWarning: !config.dev.showEslintErrorsInOverlay
+    }
+  };
+};
+
+function isExternal(module) {
+  let context = module.context;
+
+  if (typeof context !== 'string') {
+    return false;
   }
-})
+
+  return context.indexOf('node_modules') !== -1;
+}
 
 module.exports = {
+  stats: {
+    maxModules: 0
+  },
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    filename: '[name]-bundle.js',
+    chunkFilename: '[name]-chunk.js',
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src'),
+      '@': resolve('src')
     }
   },
   module: {
@@ -87,5 +102,33 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
-}
+  },
+  plugins: [
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static'
+    // }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'node-static',
+      filename: 'node-static.js',
+      minChunks(module, count) {
+        let context = module.context;
+        return context && context.indexOf('node_modules') >= 0;
+      }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest'
+    }),
+
+    //*********************************** async chunks*************************
+
+    //catch all - anything used in more than one place
+    new webpack.optimize.CommonsChunkPlugin({
+      async: 'used-twice',
+      minChunks(module, count) {
+        return count >= 2;
+      }
+    })
+  ]
+};
