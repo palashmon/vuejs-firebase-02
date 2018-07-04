@@ -1,6 +1,10 @@
-# vuejs-firebase-02
+# Vuejs & Firebase Project #2
 
-> A Vue.js + Vuetify + Firebase DevMeetup Learning Project
+> A Demo Vue.js + Vuetify + Firebase DevMeetup Learning Project
+
+[![Build Status](https://travis-ci.org/palashmon/vuejs-firebase-02.svg?branch=master)](https://travis-ci.org/palashmon/vuejs-firebase-02)
+[![Dependency Status](https://david-dm.org/palashmon/vuejs-firebase-02.svg?maxAge=21600)](https://david-dm.org/palashmon/vuejs-firebase-02)
+[![devDependency Status](https://david-dm.org/palashmon/vuejs-firebase-02/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/vuejs-firebase-02?type=dev)
 
 ## Build Setup
 
