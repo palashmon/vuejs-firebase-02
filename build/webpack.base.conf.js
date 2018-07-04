@@ -3,6 +3,9 @@ const webpack = require('webpack');
 const utils = require('./utils');
 const config = require('../config');
 const vueLoaderConfig = require('./vue-loader.conf');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function resolve(dir) {
@@ -22,19 +25,13 @@ const createLintingRule = () => {
   };
 };
 
-function isExternal(module) {
-  let context = module.context;
-
-  if (typeof context !== 'string') {
-    return false;
-  }
-
-  return context.indexOf('node_modules') !== -1;
-}
-
 module.exports = {
   stats: {
-    maxModules: 0
+    maxModules: 0,
+    colors: true,
+    hash: true,
+    timings: true,
+    assets: true
   },
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -103,32 +100,38 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   },
-  plugins: [
-    // new BundleAnalyzerPlugin({
-    //   analyzerMode: 'static'
-    // }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'node-static',
-      filename: 'node-static.js',
-      minChunks(module, count) {
-        let context = module.context;
-        return context && context.indexOf('node_modules') >= 0;
+  plugins: [new CleanWebpackPlugin(['dist']), new VueLoaderPlugin()],
+  optimization: {
+    minimizer: [
+      new UglifyJSPlugin({
+        sourceMap: true,
+        uglifyOptions: {
+          compress: {
+            inline: false
+          }
+        }
+      })
+    ],
+    runtimeChunk: false,
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
       }
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
-    }),
-
-    //*********************************** async chunks*************************
-
-    //catch all - anything used in more than one place
-    new webpack.optimize.CommonsChunkPlugin({
-      async: 'used-twice',
-      minChunks(module, count) {
-        return count >= 2;
-      }
-    })
-  ]
+    }
+  }
 };
