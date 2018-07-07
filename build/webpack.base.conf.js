@@ -6,7 +6,7 @@ const vueLoaderConfig = require('./vue-loader.conf');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -36,12 +36,6 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
-  },
-  output: {
-    path: config.build.assetsRoot,
-    filename: 'bundle.[name].js',
-    chunkFilename: 'chunk.[name].js',
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -104,12 +98,9 @@ module.exports = {
   optimization: {
     minimizer: [
       new UglifyJSPlugin({
-        sourceMap: true,
-        uglifyOptions: {
-          compress: {
-            inline: false
-          }
-        }
+        cache: true,
+        parallel: true,
+        sourceMap: true
       })
     ],
     runtimeChunk: false,

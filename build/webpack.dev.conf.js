@@ -16,6 +16,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
+  output: {
+    path: config.build.assetsRoot,
+    filename: 'bundle.[name].js',
+    chunkFilename: 'chunk.[name].js',
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
+  },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
 
