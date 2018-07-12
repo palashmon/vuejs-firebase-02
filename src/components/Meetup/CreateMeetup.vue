@@ -128,10 +128,10 @@
   export default {
     data () {
       return {
-        title: '',
-        location: '',
-        imageUrl: '',
-        description: '',
+        title: 'Portugal JS',
+        location: 'Portugal',
+        imageUrl: 'https://picsum.photos/1920/1080?image=870',
+        description: 'This is a super awesome meetup',
         date: null,
         time: '10:00',
         menu2: false,

@@ -7,28 +7,31 @@ export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
       {
-        imageUrl: 'https://bit.ly/1luHTBM',
+        //imageUrl: 'https://bit.ly/1luHTBM',
+        imageUrl: 'https://picsum.photos/1920/1080?image=1051',
         id: 'afajfjadfaadfa323',
         title: 'Meetup in New York',
-        date: '2018-06-26',
+        date: new Date('2018-06-26'),
         location: 'New York',
         description: 'New York, New York!'
       },
       {
-        imageUrl: 'https://bit.ly/1NZ5FP2',
+        //imageUrl: 'https://bit.ly/1NZ5FP2',
+        imageUrl: 'https://picsum.photos/1920/1080?image=1059',
         id: 'aadsfhbkhlk1241',
         title: 'Meetup in Paris',
-        date: '2018-06-25',
+        date: new Date('2018-06-25'),
         location: 'Paris',
-        description: 'It\'s Paris!'
+        description: "It's Paris!"
       },
       {
-        imageUrl: 'https://bit.ly/2Kpfdty',
+        //imageUrl: 'https://bit.ly/2Kpfdty',
+        imageUrl: 'https://picsum.photos/1920/1080?image=865',
         id: 'aadsfhbkhlk1242',
         title: 'Meetup in Vienna',
-        date: '2018-06-27',
+        date: new Date('2018-06-27'),
         location: 'Vienna',
-        description: 'It\'s Vienna, yesss!'
+        description: "It's Vienna, yesss!"
       }
     ],
     user: {
