@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/palashmon/vuejs-firebase-02.svg?branch=master)](https://travis-ci.org/palashmon/vuejs-firebase-02)
 [![Dependency Status](https://david-dm.org/palashmon/vuejs-firebase-02.svg?maxAge=21600)](https://david-dm.org/palashmon/vuejs-firebase-02)
-[![devDependency Status](https://david-dm.org/palashmon/vuejs-firebase-02/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/vuejs-firebase-02?type=dev)
+[![devDependency Status](https://david-dm.org/palashmon/vuejs-firebase-02/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/vuejs-firebase-02?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/palashmon/vuejs-firebase-02.svg)](https://greenkeeper.io/)
 
 ## Build Setup
 
