@@ -6,6 +6,7 @@ const vueLoaderConfig = require('./vue-loader.conf');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 //const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function resolve(dir) {
@@ -94,7 +95,7 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   },
-  plugins: [new CleanWebpackPlugin(['dist']), new VueLoaderPlugin()],
+  plugins: [new ProgressBarPlugin(), new CleanWebpackPlugin(['dist']), new VueLoaderPlugin()],
   optimization: {
     minimizer: [
       new UglifyJSPlugin({
