@@ -89,7 +89,7 @@
     "not ie <= 8"
   ],
   "lint-staged": {
-    "*.js": [
+    "*.{js,vue}": [
       "eslint --fix",
       "git add"
     ]

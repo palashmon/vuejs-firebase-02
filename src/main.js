@@ -12,7 +12,7 @@ Vue.config.productionTip = false;
 Vue.filter('date', DateFilter);
 
 // require and load dotenv
-require('dotenv').load();
+require('dotenv').config({ path: '../config/dev.env' });
 
 /* eslint-disable no-new */
 new Vue({
