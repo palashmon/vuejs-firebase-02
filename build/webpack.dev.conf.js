@@ -9,7 +9,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const loadMinified = require('./load-minified');
 
 const HOST = process.env.HOST;
@@ -84,7 +83,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new SWPrecacheWebpackPlugin({
       cacheId: 'vuejs-firebase-02',
       filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      staticFileGlobs: ['dist/**/*.{html,css,png,svg}'],
       minify: true,
       stripPrefix: 'dist/',
       runtimeCaching: [
@@ -101,8 +100,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           handler: 'cacheFirst'
         }
       ]
-    }),
-    new FriendlyErrorsWebpackPlugin()
+    })
   ],
   mode: 'development'
 });
