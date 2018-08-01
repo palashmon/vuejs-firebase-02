@@ -24,12 +24,24 @@ new Vue({
   store,
   render: h => h(App),
   created() {
-    firebase.initializeApp({
+    // Initialize Firebase
+    const config = {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
       databaseURL: process.env.DATABASE_URL,
       projectId: process.env.PROJECT_ID,
       storageBucket: process.env.STORAGE_BUCKET
+    };
+    firebase.initializeApp(config);
+
+    // Get the currently signed-in user
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user);
+      }
     });
+
+    // Load the saved meetups from database
+    this.$store.dispatch('loadMeetups');
   }
 });
