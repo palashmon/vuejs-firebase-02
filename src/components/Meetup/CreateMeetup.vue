@@ -30,12 +30,13 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <v-text-field
-                name="imageUrl"
-                label="Image URL"
-                id="image-url"
-                v-model="imageUrl"
-                required></v-text-field>
+              <v-btn raised class="primary" @click="onPickFile">Upload Image</v-btn>
+              <input
+                type="file"
+                style="display: none"
+                ref="fileInput"
+                accept="image/*"
+                @change="onFilePicked">
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -56,7 +57,7 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <h4>Choose a Data & Time</h4>
+              <h4>Choose a Date & Time</h4>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-2">
@@ -130,12 +131,13 @@
       return {
         title: 'Portugal JS',
         location: 'Portugal',
-        imageUrl: 'https://picsum.photos/1920/1080?image=870',
+        imageUrl: '',
         description: 'This is a super awesome meetup',
         date: null,
         time: '10:00',
         menu2: false,
-        menu3: false
+        menu3: false,
+        image: null
       };
     },
     beforeMount() {
@@ -167,9 +169,13 @@
         if (!this.formIsValid) {
           return;
         }
+        if (!this.image) {
+          return;
+        }
         const meetupData = {
           title: this.title,
           location: this.location,
+          image: this.image,
           imageUrl: this.imageUrl,
           description: this.description,
           date: this.submittableDateTime
@@ -184,6 +190,23 @@
           day = '' + d.getDate(),
           year = d.getFullYear();
         return [year, month.padStart(2, '0'), day.padStart(2, '0')].join('-');
+      },
+      onPickFile () {
+        this.$refs.fileInput.click();
+      },
+      onFilePicked (event) {
+        const files = event.target.files;
+        let filename = files[0].name;
+        if (filename.lastIndexOf('.') <= 0) {
+          // eslint-disable-next-line
+          return alert('Please add a valid file!');
+        }
+        const fileReader = new FileReader();
+        fileReader.addEventListener('load', () => {
+          this.imageUrl = fileReader.result;
+        });
+        fileReader.readAsDataURL(files[0]);
+        this.image = files[0];
       }
     }
   };
