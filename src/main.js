@@ -8,11 +8,13 @@ import { store } from './store';
 import DateFilter from './filters/date';
 import firebase from 'firebase/app';
 import AlertCmp from './components/Shared/Alert.vue';
+import EditMeetupDetailsDialog from './components/Meetup/Edit/EditMeetupDetailsDialog.vue';
 
 Vue.use(Vuetify);
 Vue.config.productionTip = false;
 Vue.filter('date', DateFilter);
 Vue.component('app-alert', AlertCmp);
+Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog);
 
 // require and load dotenv
 require('dotenv').config({ path: '../config/dev.env' });
