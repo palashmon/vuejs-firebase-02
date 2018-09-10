@@ -1,6 +1,6 @@
 <template>
   <v-dialog width="350px" persistent v-model="editDialog">
-    <v-btn accent slot="activator">
+    <v-btn accent slot="activator" color="info">
       Edit Time
     </v-btn>
     <v-card>
