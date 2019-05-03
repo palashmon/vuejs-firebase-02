@@ -98,5 +98,10 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "greenkeeper": {
+    "ignore": [
+      "postcss-import"
+    ]
   }
 }
