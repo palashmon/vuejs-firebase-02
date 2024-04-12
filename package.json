@@ -59,7 +59,7 @@
     "html-critical-webpack-plugin": "2.1.0",
     "html-webpack-plugin": "^4.0.0",
     "husky": "^2.0.0",
-    "lint-staged": "^8.0.0",
+    "lint-staged": "^15.2.2",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "ora": "^3.0.0",
