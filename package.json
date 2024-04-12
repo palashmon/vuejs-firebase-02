@@ -52,7 +52,7 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-html": "^5.0.0",
-    "eslint-plugin-vue": "^5.0.0-beta.1",
+    "eslint-plugin-vue": "^8.7.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^3.0.0",
     "friendly-errors-webpack-plugin": "1.7.0",
