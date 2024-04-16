@@ -16,7 +16,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "^7.1.5",
     "dotenv": "^8.0.0",
     "firebase": "^7.0.0",
     "vue": "^2.5.2",
