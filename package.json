@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.6.0",
     "firebase": "^7.0.0",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
