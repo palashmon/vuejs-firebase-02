@@ -20,7 +20,7 @@
     "dotenv": "^8.0.0",
     "firebase": "^7.0.0",
     "vue": "^2.5.22",
-    "vue-router": "^3.0.1",
+    "vue-router": "^3.0.7",
     "vuetify": "^2.0.20",
     "vuex": "^3.0.1"
   },
@@ -60,7 +60,7 @@
     "html-webpack-plugin": "4.5.2",
     "husky": "2.7.0",
     "lint-staged": "8.2.1",
-    "node-notifier": "8.0.1",
+    "node-notifier": "8.0.2",
     "optimize-css-assets-webpack-plugin": "5.0.8",
     "ora": "3.4.0",
     "portfinder": "1.0.32",
