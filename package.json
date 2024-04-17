@@ -60,7 +60,7 @@
     "html-webpack-plugin": "4.5.2",
     "husky": "2.7.0",
     "lint-staged": "8.2.1",
-    "node-notifier": "^5.1.2",
+    "node-notifier": "5.4.5",
     "optimize-css-assets-webpack-plugin": "5.0.8",
     "ora": "3.4.0",
     "portfinder": "1.0.32",
