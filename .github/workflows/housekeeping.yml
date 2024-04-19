@@ -15,6 +15,6 @@ jobs:
         with:
           repo_token: ${{ github.token }}
           date: '3 months ago'
-          dry_run: true
+          dry_run: false
           delete_tags: false
           exclude_open_pr_branches: true
