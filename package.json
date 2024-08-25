@@ -16,7 +16,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@babel/runtime": "^7.25.0",
+    "@babel/runtime": "^7.25.4",
     "dotenv": "^8.6.0",
     "firebase": "^7.24.0",
     "vue": "^2.7.16",
@@ -36,8 +36,8 @@
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-syntax-import-meta": "7.10.4",
     "@babel/plugin-syntax-jsx": "7.24.7",
-    "@babel/plugin-transform-runtime": "7.24.7",
-    "@babel/preset-env": "7.25.3",
+    "@babel/plugin-transform-runtime": "7.25.4",
+    "@babel/preset-env": "7.25.4",
     "autoprefixer": "9.8.8",
     "@babel/eslint-parser": "7.25.1",
     "babel-helper-vue-jsx-merge-props": "2.0.3",
