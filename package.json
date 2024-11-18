@@ -19,7 +19,7 @@
     "@babel/runtime": "^7.26.0",
     "dotenv": "^8.6.0",
     "firebase": "^7.24.0",
-    "vue": "^3.5.12",
+    "vue": "^3.5.13",
     "vue-router": "^3.6.5",
     "vuetify": "^2.7.2",
     "vuex": "^3.6.2"
