@@ -70,7 +70,7 @@
     "progress-bar-webpack-plugin": "2.1.0",
     "rimraf": "2.7.1",
     "semver": "6.3.1",
-    "shelljs": "0.8.5",
+    "shelljs": "0.9.1",
     "sw-precache-webpack-plugin": "1.0.0",
     "uglify-es": "3.3.9",
     "uglifyjs-webpack-plugin": "2.2.0",
